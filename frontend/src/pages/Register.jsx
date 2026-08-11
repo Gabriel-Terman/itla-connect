@@ -1,17 +1,13 @@
-function Register() {
+import "../styles/auth.css";
+
+function Login() {
   return (
-    <div>
-      <h1>Registro</h1>
+    <div className="auth-container">
 
-      <form>
-        <input placeholder="Nombre" />
+      <h1>Iniciar Sesión</h1>
 
-        <input placeholder="Apellido" />
-
-        <input
-          type="email"
-          placeholder="Correo"
-        />
+      <form className="auth-form">
+        <input type="email" placeholder="Correo" />
 
         <input
           type="password"
@@ -19,11 +15,11 @@ function Register() {
         />
 
         <button>
-          Crear Cuenta
+          Entrar
         </button>
       </form>
     </div>
   );
 }
 
-export default Register;
+export default Login;

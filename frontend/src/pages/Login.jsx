@@ -1,13 +1,13 @@
+import "../styles/auth.css";
+
 function Login() {
   return (
-    <div>
+    <div className="auth-container">
+
       <h1>Iniciar Sesión</h1>
 
-      <form>
-        <input
-          type="email"
-          placeholder="Correo"
-        />
+      <form className="auth-form">
+        <input type="email" placeholder="Correo" />
 
         <input
           type="password"

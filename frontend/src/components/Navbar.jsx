@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
+import "../styles/navbar.css";
 
 function Navbar() {
   return (
-    <nav>
+    <nav className="navbar">
       <h2>ITLA Connect</h2>
 
-      <ul>
+      <ul className="nav-links">
         <li>
           <Link to="/">Inicio</Link>
         </li>

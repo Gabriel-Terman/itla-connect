@@ -1,8 +1,13 @@
 function PostCard() {
   return (
-    <div>
-      <h3>Usuario</h3>
-      <p>Contenido de ejemplo</p>
+    <div className="post-card">
+      <h3>Juan Pérez</h3>
+
+      <p>
+        Busco apuntes de Programación Web.
+      </p>
+
+      <small>Hace 10 minutos</small>
     </div>
   );
 }
