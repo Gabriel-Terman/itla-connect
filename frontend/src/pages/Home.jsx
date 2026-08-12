@@ -1,4 +1,3 @@
-import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import PostCard from "../components/PostCard";
 
@@ -28,8 +27,6 @@ function Home() {
 
   return (
     <>
-      <Navbar />
-
       <section className="create-post-box">
 
         <h3>

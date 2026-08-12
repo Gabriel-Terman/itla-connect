@@ -1,7 +1,7 @@
 import "../styles/auth.css";
 
 import logoItla from "../assets/ITLA-logo-fondo-blanco.png";
-import fondoLogin from "../assets/Itla-fondo-login.jpg";
+import fondoLogin from "../assets/Itla-fondo-login.png";
 
 function Register() {
   return (
@@ -21,17 +21,23 @@ function Register() {
 
         <h2>Crear Cuenta</h2>
 
+        <p className="auth-description">
+          Registrate para ser parte de ITLA Connect.
+        </p>
+
         <form className="auth-form">
 
-          <input
-            type="text"
-            placeholder="Nombre"
-          />
+          <div className="row">
+            <input
+              type="text"
+              placeholder="Nombre"
+            />
 
-          <input
-            type="text"
-            placeholder="Apellido"
-          />
+            <input
+              type="text"
+              placeholder="Apellido"
+            />
+          </div>
 
           <input
             type="text"
@@ -43,15 +49,17 @@ function Register() {
             placeholder="Correo"
           />
 
-          <input
-            type="password"
-            placeholder="Contraseña"
-          />
+          <div className="row">
+            <input
+              type="password"
+              placeholder="Contraseña"
+            />
 
-          <input
-            type="password"
-            placeholder="Confirmar contraseña"
-          />
+            <input
+              type="password"
+              placeholder="Confirmar contraseña"
+            />
+          </div>
 
           <button type="submit">
             Registrarse

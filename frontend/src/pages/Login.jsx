@@ -1,7 +1,6 @@
 import "../styles/auth.css";
-
 import logoItla from "../assets/ITLA-logo-fondo-blanco.png";
-import fondoLogin from "../assets/Itla-fondo-login.jpg";
+import fondoLogin from "../assets/Itla-fondo-login.png";
 
 function Login() {
   return (
