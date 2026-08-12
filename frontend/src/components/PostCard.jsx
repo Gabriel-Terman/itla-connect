@@ -1,13 +1,42 @@
-function PostCard() {
+function PostCard({
+  autor,
+  categoria,
+  contenido,
+  fecha,
+}) {
   return (
     <div className="post-card">
-      <h3>Juan Pérez</h3>
 
-      <p>
-        Busco apuntes de Programación Web.
-      </p>
+      <div className="post-header">
 
-      <small>Hace 10 minutos</small>
+        <div className="avatar">
+          {autor.charAt(0)}
+        </div>
+
+        <div>
+          <h3>{autor}</h3>
+
+          <span className="categoria">
+            {categoria}
+          </span>
+        </div>
+
+      </div>
+
+      <p>{contenido}</p>
+
+      <div className="post-actions">
+
+        <button>❤️ Me gusta</button>
+
+        <button>💬 Comentar</button>
+
+        <button>🔗 Compartir</button>
+
+      </div>
+
+      <small>{fecha}</small>
+
     </div>
   );
 }

@@ -1,10 +1,19 @@
 import { Link } from "react-router-dom";
 import "../styles/navbar.css";
+import logo from "../assets/Itla-Connect_0.png";
 
 function Navbar() {
   return (
     <nav className="navbar">
-      <h2>ITLA Connect</h2>
+      <div className="logo-container">
+
+  <img
+    src={logo}
+    alt="ITLA Connect"
+    className="logo"
+  />
+
+  </div>
 
       <ul className="nav-links">
         <li>
@@ -16,7 +25,11 @@ function Navbar() {
         </li>
 
         <li>
-          <Link to="/register">Registro</Link>
+          <Link to="/publish">Publicar</Link>
+        </li>
+
+        <li>
+          <Link to="/register">Registrarse</Link>
         </li>
       </ul>
     </nav>

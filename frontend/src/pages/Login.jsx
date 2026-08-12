@@ -1,23 +1,49 @@
 import "../styles/auth.css";
 
+import logoItla from "../assets/ITLA-logo-fondo-blanco.png";
+import fondoLogin from "../assets/Itla-fondo-login.jpg";
+
 function Login() {
   return (
-    <div className="auth-container">
+    <div
+      className="auth-page"
+      style={{
+        backgroundImage: `url(${fondoLogin})`,
+      }}
+    >
+      <div className="auth-card">
 
-      <h1>Iniciar Sesión</h1>
-
-      <form className="auth-form">
-        <input type="email" placeholder="Correo" />
-
-        <input
-          type="password"
-          placeholder="Contraseña"
+        <img
+          src={logoItla}
+          alt="ITLA"
+          className="auth-logo"
         />
 
-        <button>
-          Entrar
-        </button>
-      </form>
+        <h2>Iniciar Sesión</h2>
+
+        <p className="auth-description">
+          Accede a ITLA Connect con tu cuenta.
+        </p>
+
+        <form className="auth-form">
+
+          <input
+            type="email"
+            placeholder="Correo electrónico"
+          />
+
+          <input
+            type="password"
+            placeholder="Contraseña"
+          />
+
+          <button type="submit">
+            Iniciar Sesión
+          </button>
+
+        </form>
+
+      </div>
     </div>
   );
 }

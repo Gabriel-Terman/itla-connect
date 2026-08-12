@@ -1,25 +1,67 @@
 import "../styles/auth.css";
 
-function Login() {
+import logoItla from "../assets/ITLA-logo-fondo-blanco.png";
+import fondoLogin from "../assets/Itla-fondo-login.jpg";
+
+function Register() {
   return (
-    <div className="auth-container">
+    <div
+      className="auth-page"
+      style={{
+        backgroundImage: `url(${fondoLogin})`,
+      }}
+    >
+      <div className="auth-card">
 
-      <h1>Iniciar Sesión</h1>
-
-      <form className="auth-form">
-        <input type="email" placeholder="Correo" />
-
-        <input
-          type="password"
-          placeholder="Contraseña"
+        <img
+          src={logoItla}
+          alt="ITLA"
+          className="auth-logo"
         />
 
-        <button>
-          Entrar
-        </button>
-      </form>
+        <h2>Crear Cuenta</h2>
+
+        <form className="auth-form">
+
+          <input
+            type="text"
+            placeholder="Nombre"
+          />
+
+          <input
+            type="text"
+            placeholder="Apellido"
+          />
+
+          <input
+            type="text"
+            placeholder="Usuario"
+          />
+
+          <input
+            type="email"
+            placeholder="Correo"
+          />
+
+          <input
+            type="password"
+            placeholder="Contraseña"
+          />
+
+          <input
+            type="password"
+            placeholder="Confirmar contraseña"
+          />
+
+          <button type="submit">
+            Registrarse
+          </button>
+
+        </form>
+
+      </div>
     </div>
   );
 }
 
-export default Login;
+export default Register;

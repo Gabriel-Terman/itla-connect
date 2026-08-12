@@ -1,31 +1,96 @@
-.auth-container {
-  width: 400px;
+.auth-page {
+  position: fixed;
 
-  margin: auto;
-  margin-top: 60px;
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  overflow: hidden;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 500px;
 
   background: white;
 
-  padding: 30px;
+  padding: 40px;
 
-  border-radius: 10px;
+  border-radius: 15px;
 
-  box-shadow: 0 2px 8px rgba(0,0,0,.1);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.25);
+}
+
+.auth-logo {
+  width: 250px;
+
+  display: block;
+
+  margin: 0 auto 20px;
+}
+
+.auth-card h2 {
+  text-align: center;
+
+  color: #004a99;
+
+  margin-bottom: 10px;
+}
+
+.auth-description {
+  text-align: center;
+
+  color: #666;
+
+  margin-bottom: 25px;
 }
 
 .auth-form {
   display: flex;
   flex-direction: column;
+
   gap: 15px;
 }
 
 .auth-form input {
-  padding: 10px;
+  padding: 12px;
+
+  border: 1px solid #ccc;
+
+  border-radius: 8px;
+
+  font-size: 15px;
 }
 
 .auth-form button {
   background: #0056b3;
+
   color: white;
+
   border: none;
-  padding: 10px;
+
+  border-radius: 8px;
+
+  padding: 12px;
+
+  font-size: 16px;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.auth-form button:hover {
+  background: #004494;
 }
