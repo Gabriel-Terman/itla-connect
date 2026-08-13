@@ -5,6 +5,8 @@ import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import CreatePost from "../pages/CreatePost";
+import Profile from "../pages/Profile";
+
 
 function AppRouter() {
   return (
@@ -14,7 +16,8 @@ function AppRouter() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/create-post" element={<CreatePost />} />
+        <Route path="/createPost" element={<CreatePost />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
       
     </BrowserRouter>

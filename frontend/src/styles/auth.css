@@ -24,7 +24,6 @@
 
 .auth-card {
   width: 570px;
-  
 
   background: white;
 
@@ -37,11 +36,11 @@
 }
 
 .auth-logo {
-  width: 420px;
+  width: 500px;
 
   display: block;
 
-  margin: 0 auto 25px;
+  margin: 60px auto 100px;
 }
 
 .auth-card h2 {
@@ -115,3 +114,116 @@
   flex: 1;
   width: 0;
 }
+
+/* =========================
+   PROFILE
+========================= */
+
+.profile-card {
+  width: 100%;
+  max-width: 500px;
+
+  background: rgba(255, 255, 255, 0.95);
+
+  backdrop-filter: blur(10px);
+
+  border-radius: 15px;
+
+  padding: 30px;
+
+  margin: 0 auto 30px auto;
+  margin-bottom: 25px;
+
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.25);
+
+  text-align: center;
+}
+
+.profile-avatar {
+  width: 100px;
+  height: 100px;
+
+  margin: 0 auto 20px;
+
+  border-radius: 50%;
+  
+  background: #1877f2;
+
+  color: white;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.profile-card h1 {
+  margin-bottom: 10px;
+
+  color: #004a99;
+}
+
+.profile-card p {
+  color: #666;
+}
+
+.profile-stats {
+  display: flex;
+  justify-content: center;
+
+  gap: 60px;
+
+  margin-top: 25px;
+}
+
+.profile-stats h3 {
+  color: #1877f2;
+
+  margin-bottom: 5px;
+}
+
+.profile-stats span {
+  color: #666;
+}
+
+/* =========================
+   PUBLICACIONES DEL PERFIL
+========================= */
+
+.profile-posts {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.profile-posts h2 {
+  text-align: center;
+
+  color: white;
+
+  margin-bottom: 20px;
+
+  text-shadow: 0 2px 5px rgba(0,0,0,.4);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+  .profile-card {
+    width: 90%;
+  }
+
+  .profile-stats {
+    flex-direction: column;
+
+    gap: 20px;
+  }
+
+}
+

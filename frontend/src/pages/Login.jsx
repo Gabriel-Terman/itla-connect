@@ -1,13 +1,13 @@
 import "../styles/auth.css";
 import logoItla from "../assets/ITLA-logo-fondo-blanco.png";
-import fondoLogin from "../assets/Itla-fondo-login.png";
+import fondo from "../assets/Itla-fondo-login.png";
 
 function Login() {
   return (
     <div
       className="auth-page"
       style={{
-        backgroundImage: `url(${fondoLogin})`,
+        backgroundImage: `url(${fondo})`,
       }}
     >
       <div className="auth-card">

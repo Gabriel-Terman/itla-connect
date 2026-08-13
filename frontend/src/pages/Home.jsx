@@ -43,19 +43,7 @@ function Home() {
         <main className="home">
 
           <section className="actions">
-            <input
-              type="text"
-              placeholder="Buscar publicaciones..."
-              className="search-input"
-            />
 
-            <select className="category-filter">
-              <option>Todas</option>
-              <option>Académico</option>
-              <option>Eventos</option>
-              <option>Empleo</option>
-              <option>General</option>
-            </select>
           </section>
 
           <section className="feed">
