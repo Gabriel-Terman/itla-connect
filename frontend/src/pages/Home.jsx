@@ -1,9 +1,15 @@
+import { Link } from "react-router-dom";
+
 import Footer from "../components/Footer";
 import PostCard from "../components/PostCard";
 
 import "../styles/home.css";
 
 function Home() {
+
+  // Simulación temporal
+  const usuarioLogueado = false;
+
   const publicaciones = [
     {
       autor: "Juan Pérez",
@@ -29,24 +35,42 @@ function Home() {
     <>
       <section className="create-post-box">
 
-        <h3>
-          ¿Qué deseas compartir hoy?
-        </h3>
+        {usuarioLogueado ? (
+          <>
+            <h3>
+              ¿Qué deseas compartir hoy?
+            </h3>
 
-        <button className="create-btn">
-          + Crear Publicación
-        </button>
+            <Link
+              to="/createPost"
+              className="create-btn"
+            >
+              + Crear Publicación
+            </Link>
+          </>
+        ) : (
+          <>
+            <h3>
+              Inicia sesión para crear publicaciones
+            </h3>
+
+            <Link
+              to="/login"
+              className="create-btn"
+            >
+              Iniciar Sesión
+            </Link>
+          </>
+        )}
 
       </section>
 
       <div className="home-page">
+
         <main className="home">
 
-          <section className="actions">
-
-          </section>
-
           <section className="feed">
+
             <h2>Publicaciones recientes</h2>
 
             {publicaciones.map((post, index) => (
@@ -58,10 +82,15 @@ function Home() {
                 fecha={post.fecha}
               />
             ))}
+
           </section>
+
         </main>
+
       </div>
+
       <Footer />
+
     </>
   );
 }

@@ -1,10 +1,39 @@
+import { Link } from "react-router-dom";
 import { useState } from "react";
 
 import "../styles/createPost.css";
 
+// Simulación temporal
+const usuarioLogueado = false;
+
 function CreatePost() {
 
   const [contenido, setContenido] = useState("");
+
+  if (!usuarioLogueado) {
+    return (
+      <div className="create-post-page">
+
+        <div className="create-post-card">
+
+          <h1>Debes iniciar sesión</h1>
+
+          <p className="create-post-description">
+            Solo los usuarios registrados pueden crear publicaciones.
+          </p>
+
+          <Link
+            to="/login"
+            className="login-required-btn"
+          >
+            Iniciar Sesión
+          </Link>
+
+        </div>
+
+      </div>
+    );
+  }
 
   return (
     <div className="create-post-page">
@@ -20,15 +49,15 @@ function CreatePost() {
         <div className="author-box">
 
           <div className="author-avatar">
-            U
+            GT
           </div>
 
           <div className="author-info">
 
-            <h3>Usuario desconocido</h3>
+            <h3>Gabriel Terman</h3>
 
             <p>
-              Publicarás como visitante
+              Publicarás desde tu cuenta
             </p>
 
           </div>
