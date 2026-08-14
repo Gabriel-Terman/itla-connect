@@ -5,7 +5,7 @@
 .create-post-page {
   min-height: 100vh;
 
-  background-image: url("../assets/Itla-fondo-login.jpg");
+  background-image: url("../assets/fondo-estudiantes.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -40,21 +40,6 @@
    TITULOS
 ========================= */
 
-.create-post-card h1 {
-  color: #004a99;
-
-  margin-bottom: 10px;
-
-  text-align: center;
-}
-
-.create-post-description {
-  text-align: center;
-
-  color: #666;
-
-  margin-bottom: 25px;
-}
 
 /* =========================
    AUTOR
@@ -169,13 +154,27 @@
 ========================= */
 
 .preview-container {
-  margin-top: 30px;
+  margin-top: 25px;
+
+  padding: 20px;
+
+  background: #f5f7fa;
+
+  border-radius: 12px;
 }
 
 .preview-container h2 {
   color: #004a99;
 
   margin-bottom: 15px;
+}
+
+.preview-container p {
+  word-break: break-word;
+
+  overflow-wrap: anywhere;
+
+  white-space: pre-wrap;
 }
 
 /* =========================

@@ -23,7 +23,7 @@
 }
 
 .auth-card {
-  width: 570px;
+  width: 500px;
 
   background: white;
 
@@ -34,13 +34,16 @@
   box-shadow:
     0 8px 32px rgba(0, 0, 0, 0.25);
 }
+.register-card {
+  width: 620px;
+}
 
 .auth-logo {
-  width: 500px;
+  width: 400px;
 
   display: block;
 
-  margin: 60px auto 100px;
+  margin: 50px auto 40px;
 }
 
 .auth-card h2 {
@@ -60,7 +63,7 @@
 
   margin-bottom: 25px;
 
-  font-size: 18px; /* agrégalo */
+  font-size: 18px; 
 }
 
 .auth-form {
@@ -71,9 +74,9 @@
 }
 
 .auth-form input {
-  height: 48px;
+  height: 38px;
 
-  padding: 12px;
+  padding: 7px;
 
   border: 1px solid #cfcfcf;
 

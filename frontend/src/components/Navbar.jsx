@@ -1,13 +1,70 @@
-import { Link } from "react-router-dom";
-import "../styles/navbar.css";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../firebase/AuthContext";
+import { logoutUser } from "../services/authService";
+import { useState, useRef, useEffect } from "react";
 import logo from "../assets/ITLA-logo-fondo-blanco.png";
+import "../styles/navbar.css";
 
 function Navbar() {
 
-  // Simulación temporal
-  const usuarioLogueado = false;
+  const menuRef = useRef(null);
+
+  const {
+    isAuthenticated,
+    userData,
+  } = useAuth();
+
+  const navigate = useNavigate();
+
+  const [menuAbierto, setMenuAbierto] =
+    useState(false);
+    useEffect(() => {
+
+      const handleClickOutside = (event) => {
+
+        if (
+          menuRef.current &&
+          !menuRef.current.contains(event.target)
+        ) {
+          setMenuAbierto(false);
+        }
+
+      };
+
+      document.addEventListener(
+        "mousedown",
+        handleClickOutside
+      );
+
+      return () => {
+        document.removeEventListener(
+          "mousedown",
+          handleClickOutside
+        );
+      };
+
+    }, []);
+
+  const handleLogout = async () => {
+
+    try {
+
+      await logoutUser();
+
+      navigate("/");
+
+    } catch (error) {
+
+      console.error(error);
+
+      alert("Error al cerrar sesión");
+
+    }
+
+  };
 
   return (
+
     <nav className="navbar">
 
       <Link to="/" className="logo-container">
@@ -21,31 +78,64 @@ function Navbar() {
       <ul className="nav-links">
 
         <li>
-          <Link to="/">Inicio</Link>
+          <Link to="/">
+            Inicio
+          </Link>
         </li>
 
-        {usuarioLogueado ? (
-          <>
-            <li>
-              <Link to="/createPost">
-                Publicar
-              </Link>
-            </li>
+        {isAuthenticated ? (
+          <li 
+          className="user-menu"
+          ref={menuRef}
+          >
 
-            <li>
-              <Link to="/profile">
-                Perfil
-              </Link>
-            </li>
+            <button
+              className="user-btn"
+              onClick={() =>
+                setMenuAbierto(!menuAbierto)
+              }
+            >
+              {userData?.nombre || "Usuario"} ▼
+            </button>
 
-            <li>
-              <Link to="/">
-                Cerrar sesión
-              </Link>
-            </li>
-          </>
-        ) : (
+            {menuAbierto && (
+
+              <div className="dropdown-menu">
+
+                <Link
+                  to="/createPost"
+                  onClick={() =>
+                    setMenuAbierto(false)
+                  }
+                >
+                  Publicar
+                </Link>
+
+                <Link
+                  to="/profile"
+                  onClick={() =>
+                    setMenuAbierto(false)
+                  }
+                >
+                  Perfil
+                </Link>
+
+                <hr />
+
+                <button
+                  onClick={handleLogout}
+                >
+                  Cerrar sesión
+                </button>
+
+              </div>
+
+            )}
+
+          </li>
+          ) : (
           <>
+
             <li>
               <Link to="/login">
                 Login
@@ -57,12 +147,14 @@ function Navbar() {
                 Registrarse
               </Link>
             </li>
+
           </>
         )}
 
       </ul>
 
     </nav>
+
   );
 }
 

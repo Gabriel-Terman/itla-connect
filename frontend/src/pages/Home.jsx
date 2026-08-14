@@ -1,42 +1,36 @@
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 import Footer from "../components/Footer";
 import PostCard from "../components/PostCard";
+
 import { useAuth } from "../firebase/AuthContext";
+import { escucharPublicaciones } from "../services/postService";
 
 import "../styles/home.css";
 
 function Home() {
 
-const usuarioLogueado =
-  isAuthenticated;
+  const { isAuthenticated } = useAuth();
 
-  const publicaciones = [
-    {
-      autor: "Juan Pérez",
-      categoria: "Académico",
-      contenido: "Busco apuntes de React para el examen final.",
-      fecha: "Hace 10 minutos",
-    },
-    {
-      autor: "María López",
-      categoria: "Eventos",
-      contenido: "Mañana habrá una charla sobre Inteligencia Artificial.",
-      fecha: "Hace 1 hora",
-    },
-    {
-      autor: "Carlos Gómez",
-      categoria: "Empleo",
-      contenido: "Comparto vacante para pasantía en desarrollo web.",
-      fecha: "Hace 2 horas",
-    },
-  ];
+  const [publicaciones, setPublicaciones] = useState([]);
+
+  useEffect(() => {
+
+    const unsubscribe =
+      escucharPublicaciones(
+        setPublicaciones
+      );
+
+    return () => unsubscribe();
+
+  }, []);
 
   return (
     <>
       <section className="create-post-box">
 
-        {usuarioLogueado ? (
+        {isAuthenticated ? (
           <>
             <h3>
               ¿Qué deseas compartir hoy?
@@ -46,7 +40,7 @@ const usuarioLogueado =
               to="/createPost"
               className="create-btn"
             >
-              + Crear Publicación
+              Crear Publicación
             </Link>
           </>
         ) : (
@@ -74,15 +68,33 @@ const usuarioLogueado =
 
             <h2>Publicaciones recientes</h2>
 
-            {publicaciones.map((post, index) => (
-              <PostCard
-                key={index}
-                autor={post.autor}
-                categoria={post.categoria}
-                contenido={post.contenido}
-                fecha={post.fecha}
-              />
-            ))}
+            {publicaciones.length === 0 ? (
+              <div className="empty-feed">
+
+                <p>
+                  No hay publicaciones todavía.
+                </p>
+
+              </div>
+            ) : (
+              publicaciones.map((post) => (
+
+                <PostCard
+                  key={post.id}
+                  id={post.id}
+                  likes={post.likes || 0}
+                  autor={post.autor}
+                  categoria={post.categoria}
+                  contenido={post.contenido}
+                  fecha={
+                    post.fecha?.toDate
+                      ? post.fecha.toDate().toLocaleString()
+                      : "Reciente"
+                  }
+                />
+
+              ))
+            )}
 
           </section>
 

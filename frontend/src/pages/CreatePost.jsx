@@ -3,20 +3,51 @@ import { useState } from "react";
 
 import "../styles/createPost.css";
 
-import { useAuth }
-  from "../firebase/AuthContext";
+import { useAuth } from "../firebase/AuthContext";
+import { crearPublicacion } from "../services/postService";
 
 function CreatePost() {
 
-  const { isAuthenticated }
-    = useAuth();
+  const {
+    user,
+    userData,
+    isAuthenticated,
+  } = useAuth();
 
-  const usuarioLogueado =
-    isAuthenticated;
-
+  const [categoria, setCategoria] = useState("General");
   const [contenido, setContenido] = useState("");
 
-  if (!usuarioLogueado) {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+
+      await crearPublicacion({
+        contenido,
+        categoria,
+        autorNombre:
+          userData?.usuario ||
+          user?.displayName ||
+          "Usuario",
+
+        authorId: user.uid,
+      });
+
+      alert("Publicación creada correctamente");
+      navigate("/");
+
+      setCategoria("General");
+      setContenido("");
+
+    } catch (error) {
+
+      console.error(error);
+
+      alert("Error al crear publicación");
+    }
+  };
+
+  if (!isAuthenticated) {
     return (
       <div className="create-post-page">
 
@@ -46,21 +77,18 @@ function CreatePost() {
 
       <div className="create-post-card">
 
-        <h1>Crear Publicación</h1>
-
-        <p className="create-post-description">
-          Comparte información con la comunidad ITLA.
-        </p>
-
         <div className="author-box">
 
           <div className="author-avatar">
-            GT
+            {userData?.nombre?.charAt(0)}
+            {userData?.apellido?.charAt(0)}
           </div>
 
           <div className="author-info">
 
-            <h3>Gabriel Terman</h3>
+            <h3>
+              {userData?.nombre} {userData?.apellido}
+            </h3>
 
             <p>
               Publicarás desde tu cuenta
@@ -70,14 +98,17 @@ function CreatePost() {
 
         </div>
 
-        <form className="create-post-form">
+        <form
+          className="create-post-form"
+          onSubmit={handleSubmit}
+        >
 
-          <input
-            type="text"
-            placeholder="Título"
-          />
-
-          <select>
+          <select
+            value={categoria}
+            onChange={(e) =>
+              setCategoria(e.target.value)
+            }
+          >
             <option>Académico</option>
             <option>Eventos</option>
             <option>Empleo</option>
@@ -92,7 +123,7 @@ function CreatePost() {
             }
           />
 
-          <button>
+          <button type="submit">
             Publicar
           </button>
 

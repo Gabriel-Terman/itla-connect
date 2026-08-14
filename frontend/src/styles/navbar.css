@@ -14,13 +14,20 @@
 
 .nav-links {
   display: flex;
+
   gap: 15px;
-  transition: .3s;
+
+  list-style: none;
+
+  margin: 0;
+
+  padding: 0;
 }
 
 .nav-links a {
   color: #002e8b;
   font-weight: 700;
+  text-decoration: none;
 }
 
 .logo-container{
@@ -31,4 +38,102 @@
 
 .logo {
     max-height: calc(60px - (0.25rem * 2));
+}
+
+.logout-btn {
+  background: none;
+
+  border: none;
+
+  color: #002e8b;
+
+  font-weight: 700;
+
+  font-size: inherit;
+
+  font-family: inherit;
+
+  cursor: pointer;
+
+  padding: 0;
+
+  text-decoration: none;
+}
+
+.logout-btn:hover {
+  color: #1877f2;
+}
+
+.user-menu {
+  position: relative;
+}
+
+.user-btn {
+  background: none;
+
+  border: none;
+
+  color: #002e8b;
+
+  font-weight: 700;
+
+  font-size: inherit;
+
+  font-family: inherit;
+
+  cursor: pointer;
+}
+
+.user-btn:hover {
+  color: #1877f2;
+}
+
+.dropdown-menu {
+  position: absolute;
+
+  top: 40px;
+  right: 0;
+
+  min-width: 180px;
+
+  background: white;
+
+  border: 1px solid #ddd;
+
+  border-radius: 10px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 8px 20px rgba(0,0,0,.15);
+
+  z-index: 9999;
+}
+
+.dropdown-menu a,
+.dropdown-menu button {
+  display: block;
+
+  width: 100%;
+
+  padding: 12px 15px;
+
+  text-align: left;
+
+  color: #333;
+
+  text-decoration: none;
+
+  background: white;
+
+  border: none;
+
+  cursor: pointer;
+
+  font-size: 14px;
+}
+
+.dropdown-menu a:hover,
+.dropdown-menu button:hover {
+  background: #f5f7fa;
 }
