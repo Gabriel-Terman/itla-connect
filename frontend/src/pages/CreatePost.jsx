@@ -3,10 +3,16 @@ import { useState } from "react";
 
 import "../styles/createPost.css";
 
-// Simulación temporal
-const usuarioLogueado = false;
+import { useAuth }
+  from "../firebase/AuthContext";
 
 function CreatePost() {
+
+  const { isAuthenticated }
+    = useAuth();
+
+  const usuarioLogueado =
+    isAuthenticated;
 
   const [contenido, setContenido] = useState("");
 

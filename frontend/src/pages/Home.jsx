@@ -2,13 +2,14 @@ import { Link } from "react-router-dom";
 
 import Footer from "../components/Footer";
 import PostCard from "../components/PostCard";
+import { useAuth } from "../firebase/AuthContext";
 
 import "../styles/home.css";
 
 function Home() {
 
-  // Simulación temporal
-  const usuarioLogueado = false;
+const usuarioLogueado =
+  isAuthenticated;
 
   const publicaciones = [
     {

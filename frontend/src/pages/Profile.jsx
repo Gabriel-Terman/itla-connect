@@ -3,6 +3,10 @@ import "../styles/profile.css";
 import fondo from "../assets/Itla-fondo-login.png";
 
 function Profile() {
+
+  const { isAuthenticated }
+    = useAuth();
+
   const publicaciones = [
     {
       autor: "Gabriel Terman",
