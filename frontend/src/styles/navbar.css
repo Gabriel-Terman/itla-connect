@@ -1,68 +1,66 @@
+/* =========================
+   NAVBAR
+========================= */
+
 .navbar {
-  background-color: #ffffff;
-  color: white;
-  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  position: sticky;    
-  top: 0;
-  z-index: 1000;
+  padding: 1rem 2rem;
+
+  background-color: #ffffff;
+  color: white;
 }
+
+
+/* =========================
+   LOGO
+========================= */
+
+.logo-container {
+  display: flex;
+  align-items: center;
+
+  gap: 0;
+}
+
+.logo {
+  max-height: calc(60px - (0.25rem * 2));
+}
+
+
+/* =========================
+   LINKS
+========================= */
 
 .nav-links {
   display: flex;
 
   gap: 15px;
 
-  list-style: none;
-
   margin: 0;
-
   padding: 0;
+
+  list-style: none;
 }
 
 .nav-links a {
   color: #002e8b;
-  font-weight: 700;
-  text-decoration: none;
-}
-
-.logo-container{
-  display:flex;
-  align-items:center;
-  gap:0px;
-}
-
-.logo {
-    max-height: calc(60px - (0.25rem * 2));
-}
-
-.logout-btn {
-  background: none;
-
-  border: none;
-
-  color: #002e8b;
 
   font-weight: 700;
-
-  font-size: inherit;
-
-  font-family: inherit;
-
-  cursor: pointer;
-
-  padding: 0;
 
   text-decoration: none;
 }
 
-.logout-btn:hover {
-  color: #1877f2;
-}
+
+/* =========================
+   USER MENU
+========================= */
 
 .user-menu {
   position: relative;
@@ -71,15 +69,13 @@
 .user-btn {
   background: none;
 
-  border: none;
-
   color: #002e8b;
 
+  font-family: inherit;
+  font-size: inherit;
   font-weight: 700;
 
-  font-size: inherit;
-
-  font-family: inherit;
+  border: none;
 
   cursor: pointer;
 }
@@ -87,6 +83,38 @@
 .user-btn:hover {
   color: #1877f2;
 }
+
+
+/* =========================
+   LOGOUT BUTTON
+========================= */
+
+.logout-btn {
+  background: none;
+
+  color: #002e8b;
+
+  padding: 0;
+
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 700;
+
+  border: none;
+
+  cursor: pointer;
+
+  text-decoration: none;
+}
+
+.logout-btn:hover {
+  color: #1877f2;
+}
+
+
+/* =========================
+   DROPDOWN MENU
+========================= */
 
 .dropdown-menu {
   position: absolute;
@@ -99,13 +127,11 @@
   background: white;
 
   border: 1px solid #ddd;
-
   border-radius: 10px;
 
   overflow: hidden;
 
-  box-shadow:
-    0 8px 20px rgba(0,0,0,.15);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 
   z-index: 9999;
 }
@@ -118,19 +144,17 @@
 
   padding: 12px 15px;
 
-  text-align: left;
-
+  background: white;
   color: #333;
 
-  text-decoration: none;
+  font-size: 14px;
 
-  background: white;
+  text-align: left;
+  text-decoration: none;
 
   border: none;
 
   cursor: pointer;
-
-  font-size: 14px;
 }
 
 .dropdown-menu a:hover,

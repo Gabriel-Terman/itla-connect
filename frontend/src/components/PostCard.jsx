@@ -1,7 +1,16 @@
-import { darLike } from "../services/postService";
+import { useState } from "react";
+
+import { useAuth } from "../firebase/AuthContext";
+
+import {
+  darLike,
+  editarPublicacion,
+  eliminarPublicacion,
+} from "../services/postService";
 
 function PostCard({
   id,
+  authorId,
   likes,
   autor,
   categoria,
@@ -9,7 +18,16 @@ function PostCard({
   fecha,
 }) {
 
+  const { user } = useAuth();
+
+  const [editando, setEditando] =
+    useState(false);
+
+  const [textoEditado, setTextoEditado] =
+    useState(contenido);
+
   const handleLike = async () => {
+
     try {
 
       await darLike(id);
@@ -19,6 +37,50 @@ function PostCard({
       console.error(error);
 
     }
+
+  };
+
+  const handleSave = async () => {
+
+    try {
+
+      await editarPublicacion(
+        id,
+        textoEditado
+      );
+
+      setEditando(false);
+
+    } catch (error) {
+
+      console.error(error);
+
+      alert("Error al editar publicación");
+
+    }
+
+  };
+
+  const handleDelete = async () => {
+
+    const confirmar = window.confirm(
+      "¿Deseas eliminar esta publicación?"
+    );
+
+    if (!confirmar) return;
+
+    try {
+
+      await eliminarPublicacion(id);
+
+    } catch (error) {
+
+      console.error(error);
+
+      alert("Error al eliminar publicación");
+
+    }
+
   };
 
   const formatearFecha = (fecha) => {
@@ -38,11 +100,15 @@ function PostCard({
       });
 
     } catch {
+
       return "Reciente";
+
     }
+
   };
 
   return (
+
     <div className="post-card">
 
       <div className="post-header">
@@ -63,21 +129,64 @@ function PostCard({
 
       </div>
 
-      <p>{contenido}</p>
+      {editando ? (
+
+        <textarea
+          value={textoEditado}
+          onChange={(e) =>
+            setTextoEditado(e.target.value)
+          }
+        />
+
+      ) : (
+
+        <p>{contenido}</p>
+
+      )}
 
       <div className="post-actions">
 
         <button onClick={handleLike}>
-          ❤️ {likes} Me gusta
+          {/* Quedo en desarrollo ya que solo funciona para el usuario que creo el post */}
+        ❤️ {likes} 
         </button>
 
         <button>
-          💬 Comentar
+        💬
         </button>
 
         <button>
-          🔗 Compartir
+          ↪
         </button>
+
+        {user?.uid === authorId &&
+          !editando && (
+            <>
+              <button
+                onClick={() =>
+                  setEditando(true)
+                }
+              >
+              📝
+              </button>
+
+              <button
+                onClick={handleDelete}
+              >
+              🗑️
+              </button>
+            </>
+          )}
+
+        {editando && (
+
+          <button
+            onClick={handleSave}
+          >
+            💾
+          </button>
+
+        )}
 
       </div>
 
@@ -86,7 +195,9 @@ function PostCard({
       </small>
 
     </div>
+
   );
+
 }
 
 export default PostCard;

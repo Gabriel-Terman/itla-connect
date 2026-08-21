@@ -4,7 +4,7 @@ import "../styles/auth.css";
 
 import logoItla from "../assets/ITLA-logo-fondo-blanco.png";
 import fondo from "../assets/Itla-fondo-login.png";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import {
   loginUser,
@@ -37,14 +37,14 @@ function Login() {
     }
   };
 
-  return (
-    <div
-      className="auth-page"
-      style={{
-        backgroundImage: `url(${fondo})`,
-      }}
-    >
-      <div className="auth-card">
+return (
+      <div
+        className="auth-page"
+        style={{
+          backgroundImage: `url(${fondo})`,
+        }}
+      >
+        <div className="auth-card">
 
         <img
           src={logoItla}
@@ -52,44 +52,48 @@ function Login() {
           className="auth-logo"
         />
 
-        <h2>Iniciar Sesión</h2>
+          <form
+            className="auth-form"
+            onSubmit={handleSubmit}
+          >
 
-        <p className="auth-description">
-          Accede a ITLA Connect con tu cuenta.
-        </p>
+            <input
+              type="email"
+              placeholder="Correo electrónico"
+              value={correo}
+              onChange={(e) =>
+                setCorreo(e.target.value)
+              }
+            />
 
-        <form
-          className="auth-form"
-          onSubmit={handleSubmit}
-        >
+            <input
+              type="password"
+              placeholder="Contraseña"
+              value={contrasena}
+              onChange={(e) =>
+                setContrasena(e.target.value)
+              }
+            />
 
-          <input
-            type="email"
-            placeholder="Correo electrónico"
-            value={correo}
-            onChange={(e) =>
-              setCorreo(e.target.value)
-            }
-          />
+            <button type="submit">
+              Iniciar Sesión
+            </button>
 
-          <input
-            type="password"
-            placeholder="Contraseña"
-            value={contrasena}
-            onChange={(e) =>
-              setContrasena(e.target.value)
-            }
-          />
+            <p className="auth-link">
+              ¿No tienes una cuenta?{" "}
+              <Link
+                to="/register"
+                className="auth-link-highlight"
+              >
+                Regístrate
+              </Link>
+            </p>
 
-          <button type="submit">
-            Iniciar Sesión
-          </button>
+          </form>
 
-        </form>
-
+        </div>
       </div>
-    </div>
-  );
+    );
 }
 
 export default Login;

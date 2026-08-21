@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom";
 import { useState } from "react";
 
 import "../styles/createPost.css";
 
 import { useAuth } from "../firebase/AuthContext";
 import { crearPublicacion } from "../services/postService";
+import { Link, useNavigate } from "react-router-dom";
 
 function CreatePost() {
 
@@ -16,6 +16,7 @@ function CreatePost() {
 
   const [categoria, setCategoria] = useState("General");
   const [contenido, setContenido] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();

@@ -4,7 +4,7 @@ import "../styles/auth.css";
 
 import logoItla from "../assets/ITLA-logo-fondo-blanco.png";
 import fondoLogin from "../assets/Itla-fondo-login.png";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 import {
@@ -47,14 +47,14 @@ function Register() {
     }
   };
 
-  return (
-    <div
-      className="auth-page"
-      style={{
-        backgroundImage: `url(${fondoLogin})`,
-      }}
-    >
-      <div className="auth-card">
+return (
+  <div
+    className="auth-page"
+    style={{
+      backgroundImage: `url(${fondoLogin})`,
+    }}
+  >
+    <div className="auth-card register-card">
 
         <img
           src={logoItla}
@@ -62,84 +62,92 @@ function Register() {
           className="auth-logo"
         />
 
-        <h2>Crear Cuenta</h2>
+      <form
+        className="auth-form"
+        onSubmit={handleSubmit}
+      >
 
-        <p className="auth-description">
-          Registrate para ser parte de ITLA Connect.
-        </p>
-
-        <form
-          className="auth-form"
-          onSubmit={handleSubmit}
-        >
-
-          <div className="row">
-            <input
-              type="text"
-              placeholder="Nombre"
-              value={nombre}
-              onChange={(e) =>
-                setNombre(e.target.value)
-              }
-            />
-
-            <input
-              type="text"
-              placeholder="Apellido"
-              value={apellido}
-              onChange={(e) =>
-                setApellido(e.target.value)
-              }
-            />
-          </div>
+        <div className="row">
 
           <input
             type="text"
-            placeholder="Usuario"
-            value={usuario}
+            placeholder="Nombre"
+            value={nombre}
             onChange={(e) =>
-              setUsuario(e.target.value)
+              setNombre(e.target.value)
             }
           />
 
           <input
-            type="email"
-            placeholder="Correo"
-            value={correo}
+            type="text"
+            placeholder="Apellido"
+            value={apellido}
             onChange={(e) =>
-              setCorreo(e.target.value)
+              setApellido(e.target.value)
             }
           />
 
-          <div className="row">
-            <input
-              type="password"
-              placeholder="Contraseña"
-              value={contrasena}
-              onChange={(e) =>
-                setContrasena(e.target.value)
-              }
-            />
+        </div>
 
-            <input
-              type="password"
-              placeholder="Confirmar contraseña"
-              value={confirmar}
-              onChange={(e) =>
-                setConfirmar(e.target.value)
-              }
-            />
-          </div>
+        <input
+          type="text"
+          placeholder="Nombre de usuario"
+          value={usuario}
+          onChange={(e) =>
+            setUsuario(e.target.value)
+          }
+        />
 
-          <button type="submit">
-            Registrarse
-          </button>
+        <input
+          type="email"
+          placeholder="Correo electrónico"
+          value={correo}
+          onChange={(e) =>
+            setCorreo(e.target.value)
+          }
+        />
 
-        </form>
+        <div className="row">
 
-      </div>
+          <input
+            type="password"
+            placeholder="Contraseña"
+            value={contrasena}
+            onChange={(e) =>
+              setContrasena(e.target.value)
+            }
+          />
+
+          <input
+            type="password"
+            placeholder="Confirmar contraseña"
+            value={confirmar}
+            onChange={(e) =>
+              setConfirmar(e.target.value)
+            }
+          />
+
+        </div>
+
+        <button type="submit">
+          Registrarse
+        </button>
+
+        <p className="auth-link">
+          ¿Ya tienes una cuenta?{" "}
+          <Link
+            to="/login"
+            className="auth-link-highlight"
+          >
+            Inicia sesión
+          </Link>
+        </p>
+
+      </form>
+
     </div>
-  );
+  </div>
+);
 }
 
 export default Register;

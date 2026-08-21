@@ -81,6 +81,7 @@ function Home() {
 
                 <PostCard
                   key={post.id}
+                  authorId={post.authorId}
                   id={post.id}
                   likes={post.likes || 0}
                   autor={post.autor}

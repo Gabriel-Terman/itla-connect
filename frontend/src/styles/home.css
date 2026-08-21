@@ -222,13 +222,11 @@
 .post-actions button {
   border: none;
 
-  background: transparent;
+  background: none;
 
   cursor: pointer;
 
   font-size: 15px;
-
-  color: #65676b;
 
   transition: 0.3s;
 }

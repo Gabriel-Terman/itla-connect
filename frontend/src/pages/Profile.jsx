@@ -109,6 +109,9 @@ function Profile() {
           ) : (
             publicaciones.map((post) => (
               <PostCard
+                id={post.id}
+                authorId={post.authorId}
+                likes={post.likes || 0}
                 key={post.id}
                 autor={post.autor}
                 categoria={post.categoria}
