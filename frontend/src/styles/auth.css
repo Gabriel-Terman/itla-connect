@@ -1,0 +1,259 @@
+/* =========================
+   AUTH
+========================= */
+
+.auth-page {
+  position: relative;
+
+  min-height: calc(100vh - 80px);
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  padding-right: 12%;
+
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.auth-page::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.35);
+
+  z-index: 1;
+}
+
+.auth-card {
+  position: relative;
+  z-index: 2;
+
+  width: 430px;
+
+  padding: 30px;
+
+  background: rgba(255, 255, 255, 0.96);
+
+  backdrop-filter: blur(8px);
+
+  border-radius: 12px;
+
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+}
+
+.register-card {
+  width: 500px;
+}
+
+.auth-logo {
+  display: block;
+
+  width: 350px;
+
+  margin: 0 auto 30px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+
+  gap: 15px;
+}
+
+.auth-form input {
+  height: 50px;
+
+  padding: 12px;
+
+  font-size: 16px;
+
+  border: 1px solid #dddfe2;
+  border-radius: 6px;
+}
+
+.auth-form button {
+  padding: 14px;
+
+  background: #01035a;
+  color: white;
+
+  font-size: 18px;
+  font-weight: 600;
+
+  border: none;
+  border-radius: 6px;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.auth-form button:hover {
+  background: #004494;
+}
+
+.auth-link {
+  margin-top: 15px;
+
+  text-align: center;
+
+  color: #606770;
+
+  font-size: 14px;
+}
+
+.auth-link-highlight {
+  color: #1877f2;
+
+  font-weight: 600;
+
+  text-decoration: none;
+}
+
+.auth-link-highlight:hover {
+  text-decoration: underline;
+}
+
+.row {
+  display: flex;
+
+  gap: 12px;
+
+  width: 100%;
+}
+
+.row input {
+  flex: 1;
+}
+
+
+/* =========================
+   PROFILE
+========================= */
+
+.profile-card {
+  width: 100%;
+  max-width: 500px;
+
+  padding: 30px;
+
+  margin: 0 auto 25px;
+
+  text-align: center;
+
+  background: rgba(255, 255, 255, 0.95);
+
+  backdrop-filter: blur(10px);
+
+  border-radius: 15px;
+
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+}
+
+.profile-avatar {
+  width: 100px;
+  height: 100px;
+
+  margin: 0 auto 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #1877f2;
+  color: white;
+
+  border-radius: 50%;
+
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.profile-card h1 {
+  color: #004a99;
+
+  margin-bottom: 10px;
+}
+
+.profile-card p {
+  color: #666;
+}
+
+.profile-stats {
+  display: flex;
+  justify-content: center;
+
+  gap: 60px;
+
+  margin-top: 25px;
+}
+
+.profile-stats h3 {
+  color: #1877f2;
+
+  margin-bottom: 5px;
+}
+
+.profile-stats span {
+  color: #666;
+}
+
+
+/* =========================
+   PUBLICACIONES DEL PERFIL
+========================= */
+
+.profile-posts {
+  width: 100%;
+  max-width: 700px;
+
+  margin: 0 auto;
+}
+
+.profile-posts h2 {
+  text-align: center;
+
+  color: white;
+
+  margin-bottom: 20px;
+
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+  .auth-page {
+    justify-content: center;
+
+    padding: 20px;
+  }
+
+  .auth-card,
+  .register-card {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .auth-logo {
+    width: 260px;
+  }
+
+  .profile-card {
+    width: 90%;
+  }
+
+  .profile-stats {
+    flex-direction: column;
+
+    gap: 20px;
+  }
+}
